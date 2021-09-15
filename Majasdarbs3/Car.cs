@@ -15,10 +15,23 @@ namespace Majasdarbs3
         public string model { get; set; }
         public string licencePlate { get; set; }
         public int topspeed { get; set; }
+        public int currentspeed { get; set; }
 
         public static void PressHorn()
         {
             Sounds.horn();
+        }
+        public void accelearte()
+        {
+            ++currentspeed;
+        }
+        public void deAccelearte()
+        {
+            --currentspeed;
+        }
+        public void stopAccelerate()
+        {
+            currentspeed = 0;
         }
 
 

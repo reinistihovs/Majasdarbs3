@@ -35,6 +35,7 @@ namespace Majasdarbs3
             car.manufacturer = "Skoda";
             car.topspeed = 220;
             car.licencePlate = "KP8833";
+            car.currentspeed = 0;
             Console.WriteLine($"2. uzdevums: auto");
             Interactive.PressToContinue();
             Console.WriteLine($"Heres {car.manufacturer} {car.model}s HORN sound..");
@@ -45,15 +46,15 @@ namespace Majasdarbs3
 
             int speedometer = (car.topspeed / 10);
             int addspeed = (car.topspeed / speedometer);
-            int speed = addspeed;
+            //int speed = addspeed;
 
             for (int i = 0; i < speedometer; i++)
             {
                 Parallel.Invoke
                 (
                     () => Sounds.speedup(),
-                    () => Console.WriteLine($"{speed}"),
-                    () => speed = speed + addspeed
+                    () => car.currentspeed = car.currentspeed + addspeed,
+                    () => Console.WriteLine($"{car.currentspeed}")
                 ); ;
             }
 
