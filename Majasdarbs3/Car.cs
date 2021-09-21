@@ -31,9 +31,22 @@ namespace Majasdarbs3
         }
         public void stopAccelerate()
         {
-            currentspeed = 0;
-        }
+        
+            int stopMeter = (topspeed / 5);
+            int decreaseSpeed = (topspeed / stopMeter);
 
+            for (int i = 0; i < stopMeter; i++)
+            {
+                currentspeed = currentspeed - decreaseSpeed;
+                Parallel.Invoke
+                (
+                    () => Sounds.speedup(),
+                    () => Console.WriteLine($"{currentspeed}")
+                );
+                Thread.Sleep(5000/stopMeter);
+            }
+
+        }
 
     }
 

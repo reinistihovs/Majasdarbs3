@@ -57,6 +57,9 @@ namespace Majasdarbs3
                     () => Console.WriteLine($"{car.currentspeed}")
                 ); ;
             }
+            Console.WriteLine($"{car.manufacturer} {car.model} now will slowly stop");
+            Interactive.PressToContinue();
+            car.stopAccelerate();
 
             /////### 3. uzevms
             ///
